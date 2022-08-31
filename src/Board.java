@@ -4,19 +4,19 @@
 public class Board {
 
     /**
-     * Matriz de string
+     * Matriz de string que representa o tabuleiro.
      */
     private String[][] board = new String[3][3];
 
     /**
-     * Reseta ao instanciar
+     * CONSTRUTOR - Reseta ao instanciar um novo tabuleiro
      */
     public Board() {
         reset();
     }
 
     /**
-     * Reseta o tabuleiro
+     * Reseta o tabuleiro, transforma todos os índices em "" (vazio).
      */
     public void reset() {
         for (int i = 0; i < 3; i++) {
@@ -51,14 +51,17 @@ public class Board {
     }
 
     /**
-     * Verifica as linhas
+     * Verifica as linhas em busca de um vencedor
      * 
-     * @return
+     * @return String Símbolo do vencedor, vazio enquanto o jogo ainda não estiver
+     *         concluído.
      */
     public String checkLines() {
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
-                return board[i][0];
+                if (!(board[i][0] == "")) {
+                    return board[i][0];
+                }
             }
         }
 
@@ -66,14 +69,17 @@ public class Board {
     }
 
     /**
-     * Verifica as colunas
+     * Verifica as colunas em busca de um vencedor.
      * 
-     * @return
+     * @return String símbolo do vencedor, vazio enquanto o jogo ainda não estiver
+     *         concluído.
      */
     public String checkColumns() {
         for (int j = 0; j < 3; j++) {
             if (board[0][j] == board[1][j] && board[0][j] == board[2][j]) {
-                return board[0][j];
+                if (!(board[0][j] == "")) {
+                    return board[0][j];
+                }
             }
         }
 
@@ -82,9 +88,10 @@ public class Board {
     }
 
     /**
-     * Verifica as diagonais
+     * Verifica as diagonais em busca de um vencedor.
      * 
-     * @return
+     * @return String símbolo do vencedor, vazio enquanto o jogo ainda não estiver
+     *         concluído.
      */
     public String checkDiagonals() {
         if (board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
@@ -101,7 +108,7 @@ public class Board {
     /**
      * Verifica se o tabuleiro está completo
      * 
-     * @return
+     * @return boolean se o tabuleiro está completo.
      */
     public boolean checkIfBoardIsComplete() {
         for (int i = 0; i < 3; i++) {
@@ -118,9 +125,9 @@ public class Board {
     /**
      * Realiza uma jogada
      * 
-     * @param line
-     * @param column
-     * @param value
+     * @param line   linha onde o símbolo será inserido.
+     * @param column coluna onde o símbolo será inserido.
+     * @param value  símbolo a ser inserido.
      */
     public void setPosition(int line, int column, String value) {
         board[line][column] = value;
@@ -129,8 +136,8 @@ public class Board {
     /**
      * Verifica se a posição está livre
      * 
-     * @param line
-     * @param column
+     * @param line   linha da posição a ser verificada.
+     * @param column coluna da posição a ser verificada.
      * 
      * @return
      */

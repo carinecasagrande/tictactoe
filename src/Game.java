@@ -12,7 +12,7 @@ public class Game {
     public Scanner scanner = new Scanner(System.in); // Scanner
 
     /**
-     * Jogo
+     * CONSTRUTOR - Jogo
      */
     public Game() {
         initializePlayers();
@@ -72,9 +72,9 @@ public class Game {
     }
 
     /**
-     * Regras e jogo
+     * Regras de jogo e controle das jogadas até o fim de jogo.
      * 
-     * @return
+     * @return boolean se o jogo irá continuar.
      */
     public boolean play() {
         String boardResult = checkBoard();
@@ -88,20 +88,23 @@ public class Game {
             }
 
             turn = turn == "X" ? "O" : "X";
-            return true;
-        } else if (checkBoard() == "X") {
+
+        } else if (boardResult == "X") {
             System.out.println(this.playerX.getName() + " ganhou!");
             return false;
         } else {
             System.out.println(this.playerO.getName() + " ganhou!");
             return false;
         }
+
+        return true;
     }
 
     /**
      * Verifica o tabuleiro
      * 
-     * @return
+     * @return string Símbolo do vencedor, vazio caso o jogo ainda nao esteja
+     *         definido.
      */
     public String checkBoard() {
         if (board.checkLines() == "X" || board.checkColumns() == "X" || board.checkDiagonals() == "X") {

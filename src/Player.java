@@ -8,7 +8,7 @@ public class Player {
     /**
      * Retorna o nome do jogador
      * 
-     * @return
+     * @return String nome do jogador.
      */
     public String getName() {
         return this.name;
@@ -17,7 +17,7 @@ public class Player {
     /**
      * Define o home do jogador
      * 
-     * @param name
+     * @param name String contendo o nome do jogador.
      */
     public void setName(String name) {
         this.name = name;

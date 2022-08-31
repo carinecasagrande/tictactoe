@@ -33,7 +33,7 @@ public class App {
                     new Game();
                     break;
                 case 2:
-                    System.out.println("Obrigado!");
+                    System.out.println("Obrigado por jogar!");
                     showMenu = false;
                     break;
                 default:

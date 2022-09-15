@@ -79,13 +79,13 @@ public class Game {
     public boolean play() {
         String boardResult = checkBoard();
         if (boardResult == "") {
-            System.out.println((turn == "X" ? this.playerX.getName() : this.playerO.getName()) + " é a sua vez!");
-            executeMove();
-
             if (board.checkIfBoardIsComplete()) {
                 System.out.println("Empatado!");
                 return false;
             }
+
+            System.out.println((turn == "X" ? this.playerX.getName() : this.playerO.getName()) + " é a sua vez!");
+            executeMove();
 
             turn = turn == "X" ? "O" : "X";
 
